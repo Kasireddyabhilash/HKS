@@ -1,0 +1,25 @@
+p {
+  font-family: Lato;
+}
+
+
+
+
+table {
+  display: table;
+  border-collapse: separate;
+  box-sizing: border-box;
+  text-indent: initial;
+  border-spacing: 2px;
+  border-color: grey;
+}
+
+th{
+  background-color: brown;
+  color: white;
+  padding: 10px;
+}
+
+.error_text{
+  color: red;
+}

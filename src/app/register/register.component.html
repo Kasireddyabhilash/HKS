@@ -1,0 +1,158 @@
+<div class="container-fluid">
+<div class="row">
+  <div class="col-6 mr-5">
+    Regsiteration Form:
+    <button type="button" class="btn btn-light" (click)="add()">AddUser</button>
+
+    <div>
+      <form [formGroup]="regsiterForm">
+        <div>
+          <div>
+            <label for="firstName" class="form-label">First Name:</label>
+            <input type="text" formControlName="firstName" id="firstName" placeholder="First Name" />
+            <div class="error_text" *ngIf="(regsiterForm.controls?.firstName?.dirty && regsiterForm.controls?.firstName?.touched && regsiterForm.controls?.firstName?.errors) ||
+            (submitted && regsiterForm.controls?.firstName?.errors)">
+              <div class="error_text" *ngIf="regsiterForm.controls.firstName.errors?.required">First Name is
+                required.</div>
+            </div>
+          </div>
+
+          <div>
+            <label for="secondName" class="form-label">Last Name:</label>
+            <input type="text" formControlName="lastName" id="secondName" placeholder="Last Name" />
+            <div class="error_text" *ngIf="(regsiterForm.controls?.lastName?.dirty && regsiterForm.controls?.lastName?.touched && regsiterForm.controls?.firstName?.errors) ||
+            (submitted && regsiterForm.controls?.lastName?.errors)">
+              <div class="error_text" *ngIf="regsiterForm.controls.lastName.errors?.required">Last Name is
+                required.</div>
+            </div>
+          </div>
+          <div>
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" formControlName="email" id="email" placeholder="Email" />
+            <div class="error_text" *ngIf="(regsiterForm.controls?.email?.dirty && regsiterForm.controls?.email?.touched && regsiterForm.controls?.firstName?.errors) ||
+            (submitted && regsiterForm.controls?.email?.errors)">
+              <div class="error_text" *ngIf="regsiterForm.controls.email.errors?.required">Email is
+                required.</div>
+            </div>
+          </div>
+          <div>
+            <label for="phoneNumber" class="form-label">Phone:</label>
+            <input type="text" formControlName="phone" id="phoneNumber" maxlength="10" placeholder="Phone Number" />
+            <div class="error_text" *ngIf="(regsiterForm.controls?.phone?.dirty && regsiterForm.controls?.phone?.touched && regsiterForm.controls?.firstName?.errors) ||
+            (submitted && regsiterForm.controls?.phone?.errors)">
+              <div class="error_text" *ngIf="regsiterForm.controls.phone.errors?.required">Phone is
+                required.</div>
+            </div>
+          </div>
+          <div>
+            <label for="company" class="form-label">Company:</label>
+            <input type="text" formControlName="company" id="company" placeholder="Company" />
+            <div class="error_text" *ngIf="(regsiterForm.controls?.company?.dirty && regsiterForm.controls?.company?.touched && regsiterForm.controls?.firstName?.errors) ||
+            (submitted && regsiterForm.controls?.company?.errors)">
+              <div class="error_text" *ngIf="regsiterForm.controls.company.errors?.required">Company is
+                required.</div>
+            </div>
+          </div>
+          <div>
+            <label for="gender" class="form-label">Gender:</label>
+            <div class="form-check">
+              <input id="male" type="radio" class="custom-control-input" value="male" name="gender"
+                formControlName="gender" />
+              <label class="form-check-label"> Male </label>
+            </div>
+            <div class="form-check">
+              <input id="female" type="radio" class="custom-control-input" value="female" name="gender"
+                formControlName="gender" />
+              <label class="form-check-label"> Female </label>
+            </div>
+            <div class="error_text" *ngIf="(regsiterForm.controls?.gender?.dirty && regsiterForm.controls?.gender?.touched && regsiterForm.controls?.firstName?.errors) ||
+            (submitted && regsiterForm.controls?.gender?.errors)">
+              <div class="error_text" *ngIf="regsiterForm.controls.gender.errors?.required">Gender is
+                required.</div>
+            </div>
+          </div>
+          <div>
+            <label for="dob" class="form-label">DOB:</label>
+            <input type="date" formControlName="dob" id="dob" placeholder="DOB" />
+            <div class="error_text" *ngIf="(regsiterForm.controls?.dob?.dirty && regsiterForm.controls?.dob?.touched && regsiterForm.controls?.firstName?.errors) ||
+            (submitted && regsiterForm.controls?.dob?.errors)">
+              <div class="error_text" *ngIf="regsiterForm.controls.dob.errors?.required">DOB is
+                required.</div>
+            </div>
+          </div>
+          <div>
+            <label for="password" class="form-label">Password:</label>
+            <input type="password" formControlName="password" id="password" placeholder="Password" />
+            <div class="error_text" *ngIf="(regsiterForm.controls?.password?.dirty && regsiterForm.controls?.password?.touched && regsiterForm.controls?.firstName?.errors) ||
+            (submitted && regsiterForm.controls?.password?.errors)">
+              <div class="error_text" *ngIf="regsiterForm.controls.password.errors?.required">
+                Password is required
+              </div>
+            </div>
+          </div>
+          <div>
+            <label for="password" class="form-label">Confirm Password:</label>
+            <input type="password" formControlName="confirmPassword" id="password" placeholder="Confirm Password" />
+            <div class="error_text" *ngIf="(regsiterForm.controls?.confirmPassword?.dirty && regsiterForm.controls?.confirmPassword?.touched && regsiterForm.controls?.firstName?.errors) ||
+            (submitted && regsiterForm.controls?.confirmPassword?.errors)">
+              <div class="error_text" *ngIf="regsiterForm.controls.confirmPassword.errors?.required">ConfirmPassword is
+                required.</div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-3">
+          <button type="button" class="btn btn-primary" (click)="register()">
+            Register
+          </button>
+          <button type="button" class="btn btn-light ml-5" (click)="cancel()">
+            Cancel
+          </button>
+        </div>
+        <div>
+          {{errorMessage}}
+        </div>
+      </form>
+    </div>
+    <div class="col-3"></div>
+  </div>
+</div>
+<div  class="mt-3">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">FirstName</th>
+        <th scope="col">LastName</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Company</th>
+        <th scope="col">DOB</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users;let i=index">
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phone }}</td>
+        <td>{{ user.company}}</td>
+        <td>{{ user.dob |date }}</td>
+        <td>{{ user.gender }}</td>
+
+        <td>
+          <button type="button" class="btn btn-light" (click)="edit(user)">
+            Edit
+          </button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-light" (click)="deleteUuser(i)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>

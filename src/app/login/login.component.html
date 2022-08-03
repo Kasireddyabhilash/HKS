@@ -1,0 +1,43 @@
+<div class="main-bg">
+  <div class="container">
+    <form [formGroup]="loginForm">
+      <marquee behavior="scroll" direction="left">User Name: <b>hksmanpower</b> , Password: <b>hksmanpower@123</b></marquee>
+      <div class="row justify-content-center mt-5">
+        <div class="col-lg-4 col-md-6 col-sm-6">
+          <div class="card shadow">
+            <div class="card-title text-center border-bottom">
+              <h2 class="p-3">Login</h2>
+            </div>
+            <div class="card-body">
+              <p *ngIf="errorMessage" class="error_text">{{errorMessage}}</p>
+              <form [formGroup]="loginForm">
+                <div class="mb-4">
+                  <label for="username" class="form-label">Username/Email</label>
+                  <input type="text" formControlName="username" class="form-control" id="username" />
+                  <div class="error_text" *ngIf="(loginForm.controls?.username?.dirty && loginForm.controls?.username?.touched && loginForm.controls?.username?.errors) ||
+                   (submitted && loginForm.controls?.username?.errors)">
+                    <div class="error_text" *ngIf="loginForm.controls.username.errors?.required">User Name is
+                      required.</div>
+                  </div>
+                </div>
+                <div class="mb-4">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="password" formControlName="password" />
+                  <div class="error_text" *ngIf="(loginForm.controls?.password?.dirty && loginForm.controls?.password?.touched && loginForm.controls?.password?.errors) ||
+                  (submitted && loginForm.controls?.password?.errors)">
+                    <div class="error_text" *ngIf="loginForm.controls.password.errors?.required">Password is
+                      required.</div>
+                  </div>
+                </div>
+                <div class="d-grid mb-3">
+                  <button type="submit" (click)="onSubmit()" class="btn btn-primary">Login</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
